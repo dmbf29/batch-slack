@@ -1,5 +1,12 @@
-<div class="list-group w-200px bg-white br-light batch-list">
+<div class="list-group w-200px bg-white br-light batch-list" data-controller="active-batch">
   <% batches.each do |batch| %>
-    <%= link_to "##{batch.number}", batch_path(batch), class: "list-group-item #{'active' if batch == @batch}" %>
+    <%= link_to "##{batch.number}", batch_path(batch),
+        class: "list-group-item #{'active' if batch == selected_batch }",
+        data: {
+          turbo_frame: :batch_details,
+          turbo_action: :advance,
+          action: "click->active-batch#highlight",
+          active_batch_target: 'link'
+          } %>
   <% end %>
 </div>

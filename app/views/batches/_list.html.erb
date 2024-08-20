@@ -1,0 +1,5 @@
+<div class="list-group w-200px bg-white br-light batch-list">
+  <% batches.each do |batch| %>
+    <%= link_to "##{batch.number}", batch_path(batch), class: "list-group-item #{'active' if batch == @batch}" %>
+  <% end %>
+</div>

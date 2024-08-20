@@ -1,8 +1,6 @@
-<div class="container mt-5">
-  <h1>Le Wagon Chat</h1>
-  <ul>
-    <% @batches.each do |batch| %>
-      <li><%= link_to batch.number, batch_path(batch) %></li>
-    <% end %>
-  </ul>
+<div class="d-flex">
+  <%= render 'batches/list', batches: @batches %>
+  <div class="container chatroom">
+    <h1>Le Wagon Chat</h1>
+  </div>
 </div>

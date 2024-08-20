@@ -1,0 +1,17 @@
+<div class='p-3 border-bottom d-flex justify-content-between'>
+  <div>
+    <h1>
+      #<%= batch.number %>
+      <small class="text-secondary"><%= batch.part_time? ? "PT" : "FT" %> <%= batch.data_science? ? "data science" : "web dev" %></small>
+    </h1>
+    <span><i class="fa-regular fa-calendar"></i> <%= batch.start_date&.strftime('%b %d, %Y') %>-<%= batch.end_date&.strftime('%b %d, %Y') %></span>
+  </div>
+  <div>
+    <%= link_to edit_batch_path(batch), class: 'text-secondary text-decoration-none d-block' do %>
+      <i class="fa-solid fa-pencil"></i>
+    <% end %>
+    <%= link_to batch_path(batch), class: 'text-secondary text-decoration-none d-block', data: { turbo_method: :delete, turbo_confirm: "Delete Batch ##{batch.number}?"} do %>
+      <i class="fa-solid fa-trash"></i>
+    <% end %>
+  </div>
+</div>

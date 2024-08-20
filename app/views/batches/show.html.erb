@@ -1,17 +1,7 @@
 <div class="d-flex">
-  <div class="list-group w-200px bg-white br-light batch-list">
-    <% @batchs.each do |batch| %>
-      <%= link_to "##{batch.number}", batch_path(batch), class: "list-group-item #{'active' if batch == @batch}" %>
-    <% end %>
-  </div>
+  <%= render 'batches/list', batches: @batches %>
   <div class="container chatroom">
-    <div class='p-3 border-bottom'>
-      <h1>
-        #<%= @batch.number %>
-        <small class="text-secondary"><%= @batch.part_time? ? "PT" : "FT" %> <%= @batch.data_science? ? "data science" : "web dev" %></small>
-      </h1>
-      <span><i class="fa-regular fa-calendar"></i> <%= @batch.start_date&.strftime('%b %d, %Y') %>-<%= @batch.end_date&.strftime('%b %d, %Y') %></span>
-    </div>
+    <%= render 'batches/header', batch: @batch %>
     <div id='messages' class="messages">
       <% @batch.messages.each do |message| %>
         <div id="message-<%= message.id %>">

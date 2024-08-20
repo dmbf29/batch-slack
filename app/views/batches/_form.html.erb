@@ -1,0 +1,9 @@
+<%= simple_form_for batch do |f| %>
+  <%= f.input :number %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :slack_channel %>
+  <%= f.input :data_science %>
+  <%= f.input :part_time %>
+  <%= f.submit 'Submit', class: 'btn btn-primary mt-2' %>
+<% end %>

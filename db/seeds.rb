@@ -20,7 +20,6 @@ end
 puts "... created #{Batch.count} batches."
 
 puts "Creating users..."
-User.create(email: "doug@lewagon.org", nickname:
-"Doug", password: "123123", username: 'dmbf29')
-User.create(email: "trouni@lewagon.org", nickname: "Trouni", password: "123123", username: 'trouni')
+User.create(email: "doug@lewagon.org", nickname: "Doug", password: "123123", username: 'dmbf29', admin: true)
+User.create(email: "trouni@lewagon.org", nickname: "Trouni", password: "123123", username: 'trouni', admin: true)
 puts "... created #{User.count} users."

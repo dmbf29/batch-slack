@@ -6,7 +6,10 @@
     </h1>
     <span><i class="fa-regular fa-calendar"></i> <%= batch.start_date&.strftime('%b %d, %Y') %>-<%= batch.end_date&.strftime('%b %d, %Y') %></span>
   </div>
-  <div>
+  <div class="d-flex flex-column align-items-end">
+    <%= link_to github_batch_path(batch), data: { turbo_method: :post }, class: 'text-secondary text-decoration-none d-block' do %>
+      Send Leaderboard <i class="fa-brands fa-github"></i>
+    <% end %>
     <%= link_to edit_batch_path(batch), class: 'text-secondary text-decoration-none d-block' do %>
       <i class="fa-solid fa-pencil"></i>
     <% end %>

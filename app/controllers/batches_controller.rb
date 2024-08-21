@@ -1,4 +1,9 @@
 class BatchesController < ApplicationController
+
+  def github
+    raise
+  end
+
   def show
     @batch = Batch.find(params[:id])
     @batches = Batch.order(number: :desc)

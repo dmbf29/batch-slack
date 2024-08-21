@@ -12,10 +12,9 @@
         <!-- Add any new message inside of this messages div -->
       </div>
       <%= simple_form_for [@batch, @message], html: { class: "d-flex", data: {
-      controller: 'reset-form',
-      action: "turbo:submit-end->reset-form#reset"
-
-    } } do |f| %>
+        controller: 'reset-form',
+        action: "turbo:submit-end->reset-form#reset"
+      } } do |f| %>
         <%= f.input :content, label: false, placeholder: "Message ##{@batch.number}", wrapper_html: {class: "flex-grow-1"} %>
         <%= f.submit "Send", class: "btn btn-primary mb-3" %>
       <% end %>

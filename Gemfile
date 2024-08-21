@@ -78,3 +78,4 @@ end
 
 # Custom Added
 gem "actioncable-enhanced-postgresql-adapter"
+gem 'watir'

@@ -10,7 +10,11 @@
     <%= link_to edit_batch_path(batch), class: 'text-secondary text-decoration-none d-block' do %>
       <i class="fa-solid fa-pencil"></i>
     <% end %>
-    <%= link_to batch_path(batch), class: 'text-secondary text-decoration-none d-block', data: { turbo_method: :delete, turbo_confirm: "Delete Batch ##{batch.number}?"} do %>
+    <%= link_to batch_path(batch), class: 'text-secondary text-decoration-none d-block', data: {
+      turbo_method: :delete,
+      turbo_confirm: "Delete Batch ##{batch.number}?",
+      turbo_frame: '_top' # this line refreshes the whole page so the batch number is missing from the left sided list
+      } do %>
       <i class="fa-solid fa-trash"></i>
     <% end %>
   </div>

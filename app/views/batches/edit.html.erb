@@ -1,8 +1,10 @@
-<div class="container">
-  <h1>Editing #<%= @batch.number %></h1>
-  <%= render "batches/form", batch: @batch %>
-  <br>
-  <div>
-    <%= link_to "Back", :back %>
+<%= turbo_frame_tag :batch_details do %>
+  <div class="container">
+    <h1>Editing #<%= @batch.number %></h1>
+    <%= render "batches/form", batch: @batch %>
+    <br>
+    <div>
+      <%= link_to "Back", :back %>
+    </div>
   </div>
-</div>
+<% end %>

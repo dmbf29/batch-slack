@@ -1,6 +1,8 @@
 <div class="d-flex">
   <%= render 'batches/list', batches: @batches %>
-  <div class="container chatroom">
-    <h1>Le Wagon Chat</h1>
-  </div>
+  <%= turbo_frame_tag :batch_details, class: 'w-100' do %>
+    <div class="container chatroom">
+      <h1>Le Wagon Chat</h1>
+    </div>
+  <% end %>
 </div>

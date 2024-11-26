@@ -1,5 +1,13 @@
-<div class="list-group w-200px bg-white br-light batch-list">
+<div class="list-group w-200px bg-white br-light batch-list" data-controller="active-class">
   <% batches.each do |batch| %>
-    <%= link_to "##{batch.number}", batch_path(batch), class: "list-group-item #{'active' if batch == @batch}" %>
+    <%= link_to "##{batch.number}",
+      batch_path(batch),
+      class: "list-group-item #{'active' if batch == @batch}",
+      data: {
+        turbo_frame: :batch_details, # only open inside of the frame
+        turbo_action: :advance, # will change the URL
+        action: 'click->active-class#update',
+        active_class_target: 'link'
+      } %>
   <% end %>
 </div>

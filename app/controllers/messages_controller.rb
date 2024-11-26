@@ -5,7 +5,14 @@ class MessagesController < ApplicationController
     @message.batch = @batch
     @message.user = current_user
     if @message.save
-        redirect_to batch_path(@batch)
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.append(:messages, partial: "messages/message",
+            target: "messages",
+            locals: { message: @message })
+        end
+        format.html { redirect_to batch_path(@batch) }
+      end
     else
       render "batchs/show", status: :unprocessable_entity
     end

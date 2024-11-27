@@ -51,6 +51,7 @@ gem "font-awesome-sass", "~> 6.1"
 gem "sassc-rails"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "solid_cable"
+gem "watir"
 
 group :development, :test do
   gem "dotenv-rails"

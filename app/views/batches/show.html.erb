@@ -4,7 +4,7 @@
     <div class="container chatroom">
       <%= render 'batches/header', batch: @batch %>
       <!-- The :messages in the messages#create is looking for the div with that ID -->
-      <%= turbo_stream_from "batch_#{@batch.id}_messages" %>
+      <%#= turbo_stream_from "batch_#{@batch.id}_messages" %>
       <div id='messages' class="messages">
         <% @batch.messages.each do |msg| %>
           <%= render 'messages/message', message: msg %>

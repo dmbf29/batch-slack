@@ -1,4 +1,11 @@
 class BatchesController < ApplicationController
+
+  def github
+    @batch = Batch.find(55)
+    SendGithubActivityJob.perform_later(@batch.number)
+    head :ok # dont show a view, we're not expecting anything to happen
+  end
+
   def show
     @batch = Batch.find(params[:id])
     @batches = Batch.order(number: :desc)

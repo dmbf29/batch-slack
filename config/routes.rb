@@ -3,5 +3,11 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :batches, only: [:show, :edit, :destroy] do
     resources :messages, only: :create
+    member do
+      post :github
+    end
+  end
+  authenticate :user, ->(u) { u.admin? } do
+    mount MissionControl::Jobs::Engine, at: "/jobs"
   end
 end

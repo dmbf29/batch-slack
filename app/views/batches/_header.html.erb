@@ -17,5 +17,11 @@
       } do %>
       <i class="fa-solid fa-trash"></i>
     <% end %>
+    <%= link_to github_batch_path(batch), class: 'text-secondary text-decoration-none d-block', data: {
+      turbo_method: :post,
+      turbo_confirm: "Scrape github?"
+      } do %>
+      <i class="fa-brands fa-github"></i>
+    <% end %>
   </div>
 </div>

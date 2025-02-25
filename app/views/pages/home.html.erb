@@ -1,11 +1,13 @@
 <div class="d-flex">
   <%= render 'batches/list', batches: @batches %>
   <div class="container chatroom">
-    <div>
-      <h1 class='text-center mt-3'>Le Wagon Chat</h1>
-      <p class="text-center">
-        Choose a batch to start chatting.
-      </p>
-    </div>
+    <%= turbo_frame_tag :batch_details do %>
+      <div>
+        <h1 class='text-center mt-3'>Le Wagon Chat</h1>
+        <p class="text-center">
+          Choose a batch to start chatting.
+        </p>
+      </div>
+    <% end %>
   </div>
 </div>
